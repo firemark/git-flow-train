@@ -1,11 +1,12 @@
 from flask import Flask
 from flask import render_template
+from to_dict import to_dict
 app = Flask(__name__)
 
 
 def load_data():
-    return [{'country': 'Ala', 'local_price': 21, 'dollar_ex':2, 'dollar_price': 11, 'dollar_ppp': 4, 'dollar_valuation': 22},
-            {'country': 'AlASa', 'local_price': 21, 'dollar_ex':2, 'dollar_price': 11, 'dollar_ppp': 4, 'dollar_valuation': 22}]
+    return to_dict('data.csv')
+
 @app.route('/')
 def hello_world():
     data = load_data()
