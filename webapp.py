@@ -13,4 +13,4 @@ def load_data():
 def hello_world():
     headers, *body = load_data()
     body = starmap(data, body)
-    return render_template('index.html', data=data, headers=headers)
+    return render_template('index.html', data=body, headers=headers)
