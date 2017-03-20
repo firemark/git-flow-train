@@ -9,14 +9,19 @@
     http://jvectormap.com/examples/world-gdp/
 </head>
 <body>
-    <table>
+    <table class='table'>
         <tr>
-	    <th>X</th>
-	    <th>Y</th>
-       </tr>
-       {% for obj in objs %}
+       {% for each in headers %}
+             <th>{{each}}</th>
+       {% endfor %}
+        </tr>
+      
+       {% for obj in data %}
        <tr>
-            <td>{{obj.value}}</td>	
+           <td> ? </td>
+            <td>{{obj['country']}}</td>	
+            <td>{{obj['dollar_ppp']}}</td>
+            <td>{{obj['dollar_ex']}}</td>
        </tr>
        {% endfor %}
     </table>
