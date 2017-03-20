@@ -30,10 +30,12 @@ svg {
       
        {% for obj in data %}
        <tr>
-           <td> ? </td>
-            <td>{{obj['country']}}</td>	
-            <td>{{obj['dollar_ppp']}}</td>
-            <td>{{obj['dollar_ex']}}</td>
+            <td>{{obj.country}}</td>	
+            <td>{{obj.local_price}}</td>
+            <td>{{obj.dollar_ex}}</td>
+           <td>{{obj.dollar_price}}</td>
+           <td>{{obj.dollar_ppp}}</td>
+           <td>{{obj.dollar_valuation}}</td>
        </tr>
        {% endfor %}
     </table>
