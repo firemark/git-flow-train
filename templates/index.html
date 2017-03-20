@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Big mac index</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+            <script src="http://jvectormap.com/js/gdp-data.js"></script>
+
+      <script src="http://jvectormap.com/js/jquery-jvectormap-2.0.3.min.js"></script>
+
+ <script src="http://jvectormap.com//js/jquery-jvectormap-world-mill.js"></script>
+
+
+    <script type="text/javascript" src="{{ url_for('static', filename='map.js') }}"></script>
+    <style>
+svg {
+    height: 500px;
+}
+
+</style>
+</head>
+<body>
+<div id="mapVector"></div>
+    <table class='table'>
+        <tr>
+       {% for each in headers %}
+             <th>{{each}}</th>
+       {% endfor %}
+        </tr>
+      
+       {% for obj in data %}
+       <tr>
+           <td> ? </td>
+            <td>{{obj['country']}}</td>	
+            <td>{{obj['dollar_ppp']}}</td>
+            <td>{{obj['dollar_ex']}}</td>
+       </tr>
+       {% endfor %}
+    </table>
+</body>
+</html>
