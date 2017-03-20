@@ -1,15 +1,18 @@
 from flask import Flask
 from flask import render_template
-from collections import namedtuple
-
 app = Flask(__name__)
 
-data = namedtuple('Row', 'country local_price dollar_ex dollar_price dollar_ppp dollar_valuation')
 
 def load_data():
-    return [data('Ala', 32, 21, 312, 32, 23), 
-            data('Ahoy', 214, 2, 13, 2, 1)]
-
+    return [{'country': 'Ala', 'local_price': 21, 'dollar_ex':2, 'dollar_price': 11, 'dollar_ppp': 4, 'dollar_valuation': 22},
+            {'country': 'AlASa', 'local_price': 21, 'dollar_ex':2, 'dollar_price': 11, 'dollar_ppp': 4, 'dollar_valuation': 22}]
 @app.route('/')
 def hello_world():
-    return render_template('index.html', data=load_data())
+    data = load_data()
+    headers = data[0]
+    print(headers)
+    body = data[1:]
+    print list(body)
+    # print(body)
+    
+    return render_template('index.html', data=data, headers=headers)
