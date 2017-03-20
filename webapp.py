@@ -13,9 +13,3 @@ def load_data():
 @app.route('/')
 def hello_world():
     return render_template('index.html', data=load_data())
-
-
-@app.route('/hello/<name>')
-def hello(name=None):
-    return render_template('index.html', name=name)
-
